@@ -445,7 +445,11 @@ namespace glabels
 			}
 			else if ( mFilenameNode.isField() )
 			{
-				// TODO
+				QImage img(record->value(mFilenameNode.data()));
+                painter->save();
+                painter->setRenderHint( QPainter::SmoothPixmapTransform, false );
+                painter->drawImage( destRect, img );
+                painter->restore();
 			}
 		}
 
